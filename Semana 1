@@ -1,0 +1,20 @@
+
+### Crear carpeta ###
+
+if (!file.exists("semana1")) {dir.create("semana1")}
+
+### Descargar datos ###
+
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+download.file(fileUrl,destfile = "./semana1/vivienda.csv")
+
+### Mostrar tabla ####
+
+datovivienda <- read.table("./semana1/vivienda.csv", sep = ",", header = TRUE)
+head(datovivienda)
+
+
+### viviendas con precio mayor a 1000000 ###
+
+datoval <- datovivienda[datovivienda$VAL=24,]
+nrow(datoval)
